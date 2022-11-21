@@ -1,0 +1,24 @@
+{
+  "name": "st-api",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BouakkazLotfiG/stock-manager-API.git"
+  },
+  "author": "lotfi",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/BouakkazLotfiG/stock-manager-API/issues"
+  },
+  "homepage": "https://github.com/BouakkazLotfiG/stock-manager-API#readme",
+  "dependencies": {
+    "express": "^4.18.2",
+    "mongoose": "^6.7.2",
+    "nodemon": "^2.0.20"
+  }
+}
