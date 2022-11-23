@@ -4,37 +4,12 @@ const Client = require("../models/Client");
 const {
   GraphQLObjectType,
   GraphQLID,
-  GraphQLString,
   GraphQLSchema,
   GraphQLList,
-  GraphQLNonNull,
-  GraphQLEnumType,
 } = require("graphql");
 
-const ClientType = new GraphQLObjectType({
-  name: "Client",
-  fields: () => ({
-    id: { type: GraphQLID },
-    name: { type: GraphQLString },
-    email: { type: GraphQLString },
-    phone: { type: GraphQLString },
-  }),
-});
-const ProductType = new GraphQLObjectType({
-  name: "Project",
-  fields: () => ({
-    id: { type: GraphQLID },
-    name: { type: GraphQLString },
-    description: { type: GraphQLString },
-    status: { type: GraphQLString },
-    client: {
-      type: ClientType,
-      resolve(parent, args) {
-        return Client.findById(parent.clientId);
-      },
-    },
-  }),
-});
+const ProductType = require("../types/ProductType");
+const ClientType = require("../types/ClientType");
 
 const RootQuery = new GraphQLObjectType({
   name: "RootQueryType",
