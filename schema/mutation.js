@@ -59,21 +59,19 @@ const mutation = new GraphQLObjectType({
           type: new GraphQLEnumType({
             name: "ProductStatus",
             values: {
-              new: { value: "Not Started" },
-              progress: { value: "In Progress" },
-              completed: { value: "Completed" },
+              available: { value: "Available" },
+              sold: { value: "sold" },
+              outofstock: { value: "Out of stock" },
             },
           }),
-          defaultValue: "Not Started",
+          defaultValue: "Available",
         },
-        clientId: { type: GraphQLNonNull(GraphQLID) },
       },
       resolve(parent, args) {
         const product = new Product({
           name: args.name,
           description: args.description,
           status: args.status,
-          clientId: args.clientId,
         });
 
         return product.save();
@@ -100,9 +98,9 @@ const mutation = new GraphQLObjectType({
           type: new GraphQLEnumType({
             name: "ProductStatusUpdate",
             values: {
-              new: { value: "Not Started" },
-              progress: { value: "In Progress" },
-              completed: { value: "Completed" },
+              available: { value: "Available" },
+              sold: { value: "sold" },
+              outofstock: { value: "Out of stock" },
             },
           }),
         },

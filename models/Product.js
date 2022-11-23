@@ -9,12 +9,12 @@ const ProductSchema = new mongoose.Schema({
   },
   status: {
     type: String,
-    enum: ["Not Started", "In Progress", "Completed"],
+    enum: ["Available", "Sold", "Out of stock"],
   },
-  clientId: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: "Client",
-  },
+  // clientId: {
+  //   type: mongoose.Schema.Types.ObjectId,
+  //   ref: "Client",
+  // },
 });
 
 module.exports = mongoose.model("Project", ProductSchema);

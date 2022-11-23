@@ -3,7 +3,7 @@ const Client = require("../models/Client");
 
 const { GraphQLObjectType, GraphQLID, GraphQLString } = require("graphql");
 
-const ClientType = require("./ClientType");
+// const ClientType = require("./ClientType");
 
 const ProductType = new GraphQLObjectType({
   name: "Product",
@@ -12,12 +12,6 @@ const ProductType = new GraphQLObjectType({
     name: { type: GraphQLString },
     description: { type: GraphQLString },
     status: { type: GraphQLString },
-    client: {
-      type: ClientType,
-      resolve(parent, args) {
-        return Client.findById(parent.clientId);
-      },
-    },
   }),
 });
 
